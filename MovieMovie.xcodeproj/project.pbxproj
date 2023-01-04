@@ -51,8 +51,10 @@
 		6834F032296570DD0001CE39 /* MovieMovie */ = {
 			isa = PBXGroup;
 			children = (
-				6834F033296570DD0001CE39 /* MovieMovieApp.swift */,
-				6834F035296570DD0001CE39 /* ContentView.swift */,
+				6834F044296573790001CE39 /* Data */,
+				6834F0432965736D0001CE39 /* Presentation */,
+				6834F042296573450001CE39 /* Domain */,
+				6834F041296572A10001CE39 /* Application */,
 				6834F037296570DF0001CE39 /* Assets.xcassets */,
 				6834F039296570DF0001CE39 /* Preview Content */,
 			);
@@ -65,6 +67,108 @@
 				6834F03A296570DF0001CE39 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6834F041296572A10001CE39 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6834F033296570DD0001CE39 /* MovieMovieApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		6834F042296573450001CE39 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				6834F047296583AF0001CE39 /* Entities */,
+				6834F046296574230001CE39 /* UseCases */,
+				6834F045296574100001CE39 /* Repositories */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		6834F0432965736D0001CE39 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6834F04A296584320001CE39 /* Data */,
+				6834F049296583CD0001CE39 /* ViewModels */,
+				6834F048296583C30001CE39 /* Views */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6834F044296573790001CE39 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				6834F04D2965861F0001CE39 /* DataSources */,
+				6834F04C296585C30001CE39 /* DTO */,
+				6834F04B296585B30001CE39 /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		6834F045296574100001CE39 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		6834F046296574230001CE39 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		6834F047296583AF0001CE39 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		6834F048296583C30001CE39 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6834F035296570DD0001CE39 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6834F049296583CD0001CE39 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6834F04A296584320001CE39 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		6834F04B296585B30001CE39 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		6834F04C296585C30001CE39 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		6834F04D2965861F0001CE39 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
