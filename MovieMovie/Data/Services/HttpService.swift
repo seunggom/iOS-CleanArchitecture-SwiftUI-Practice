@@ -14,20 +14,26 @@ class HttpService {
         self.baseUrl = url
     }
     
+    
+    class asdf: Encodable{
+        
+    }
+    
     func request<Res>(method: HttpMethod,
                       endpoint: String,
                       parameters: [String : String]? = nil,
                       complete: (Result<Res, HttpError>) -> Void
     ) async throws where Res: Decodable {
-        try await request(method: method, endpoint: endpoint, complete: complete)
+        try await request(method: method, endpoint: endpoint, requestBody: nil, parameters: parameters, complete: complete)
     }
+
     
-    func request<Req, Res>(method: HttpMethod,
+    func request<Res>(method: HttpMethod,
                            endpoint: String,
-                           requestBody: Req?,
+                           requestBody: Encodable?,
                            parameters: [String : String]? = nil,
                            complete: (Result<Res, HttpError>) -> Void
-    ) async throws where Req: Encodable, Res: Decodable {
+    ) async throws where Res: Decodable {
         guard var component = URLComponents(string: baseUrl + endpoint) else {
             complete(Result.failure(HttpError(responseCode: 0, errorReason: "urlComponent is nil")))
             return
@@ -46,7 +52,7 @@ class HttpService {
         urlRequest.httpMethod = method.rawValue
         if requestBody != nil {
             let encoder = JSONEncoder()
-            let encodedData = try? encoder.encode(requestBody)
+            let encodedData = try? encoder.encode(requestBody!)
             
             guard encodedData != nil else {
                 complete(Result.failure(HttpError(responseCode: 0, errorReason: "fail to encode")))
@@ -63,14 +69,21 @@ class HttpService {
             complete(Result.failure(HttpError(responseCode: 0, errorReason: data.description)))
             return
         }
-        let resp = response as! HTTPURLResponse
-        let decoder = JSONDecoder()
-        let decodedData = try? decoder.decode(Res.self, from: data)
+        print(data)
+        do {
+            let resp = response as! HTTPURLResponse
+            let decoder = JSONDecoder()
+            let decodedData = try decoder.decode(Res.self, from: data)
+            print(decodedData)
+        
         
         if resp.statusCode == 200, decodedData != nil {
-            complete(Result.success(decodedData!))
+            complete(Result.success(decodedData))
         } else {
             complete(Result.failure(HttpError(responseCode: resp.statusCode, errorReason: resp.description)))
+        }
+        } catch let error {
+            print(error.localizedDescription)
         }
     }
 }

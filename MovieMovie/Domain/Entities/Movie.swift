@@ -10,6 +10,6 @@ struct Movie {
     let thumbnailImage: String
     let pubDate: String
     let actors: [String]
-    let userRating: Int
+    let userRating: String
     let link: String
 }

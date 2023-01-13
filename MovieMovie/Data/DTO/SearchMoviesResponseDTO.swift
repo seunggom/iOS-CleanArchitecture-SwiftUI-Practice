@@ -9,7 +9,7 @@ import Foundation
 
 class SearchMoviesResponseDTO: Decodable {
     let total: Int
-    let item: [SearchedMovieItem]
+    let items: [SearchedMovieItem]
 }
 
 
@@ -21,5 +21,5 @@ struct SearchedMovieItem: Decodable {
     let pubDate: String
     let director: String
     let actor: String
-    let userRating: Int
+    let userRating: String
 }

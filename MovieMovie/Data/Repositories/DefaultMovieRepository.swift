@@ -19,7 +19,7 @@ class DefaultMovieRepository: MovieRepository {
             try await remoteDataSource.searchMovies(keyword: keyword) { result in
                 switch result {
                 case .success(let responseDTO):
-                    completion(Result.success(responseDTO.item.map {
+                    completion(Result.success(responseDTO.items.map {
                         Movie(title: $0.title,
                               thumbnailImage: $0.image,
                               pubDate: $0.pubDate,
